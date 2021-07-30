@@ -1,0 +1,4 @@
+DROP DATABASE IF EXISTS todolist;
+CREATE DATABASE todolist;
+CREATE USER todolistuser WITH PASSWORD 'todolist';
+GRANT ALL PRIVILEGES ON DATABASE todolist TO todolistuser;
