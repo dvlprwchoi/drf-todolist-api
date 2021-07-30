@@ -3,14 +3,11 @@ from .models import Todo, Comment
 
 
 class TodoSerializer(serializers.HyperlinkedModelSerializer):
-    comments = CommentSerializer(
-        many=True,
-        read_only=True
-    )
+    # comments = CommentSerializer(many=True, read_only=True)
 
     todo_url = serializers.ModelSerializer.serializer_url_field(
         view_name='todo_detail')
-    owner = serializers.ReadOnlyField(source='author.username')
+    author = serializers.ReadOnlyField(source='author.username')
 
     class Meta:
         model = Todo
